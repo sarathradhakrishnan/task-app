@@ -13,6 +13,10 @@ app.set('views',path.join(__dirname,'/views/'))
 app.engine('hbs',exphbs.engine({extname:'hbs',defaultLayout:'mainLayout',layputsDir: __dirname + '/views/layouts'}))
 app.set('view engine','hbs')
 
+app.get('/',(req,res) =>{
+    res.send("Hi You are Welcome")
+})
+
 app.listen(5000,()=>{
     console.log('Express Server Started')
 })

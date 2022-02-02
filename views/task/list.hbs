@@ -12,6 +12,10 @@
         <tr>
             <td>{{this.taskName}}</td>
             <td>{{this.taskDesc}}</td>
+            <td>
+                <a>Edit</a>
+                <a href="/task/delete/{{this._id}}">Delete</a>
+            </td>
         </tr>
         {{/each}}
     </tbody>

@@ -3,6 +3,8 @@ var router = express.Router()
 const mongoose = require('mongoose')
 const task = mongoose.model('Task')
 
+
+
 router.get('/',(req,res)=>{
     res.render('task/addEdit',{
         viewTitle : "Update your to-do list"
@@ -36,6 +38,18 @@ router.get('/list',(req,res)=>{
             list:docs.map(docs => docs.toJSON())
             }
             )
+        }
+    })
+})
+
+//To delete
+router.get('/delete/:id',(req,res)=>{
+    task.findByIdAndRemove(req.params.id,(err,docs)=>{
+        if(!err){
+            res.redirect('/task/list')
+        }
+        else{
+            console.log('Error in deleting'+err)
         }
     })
 })
