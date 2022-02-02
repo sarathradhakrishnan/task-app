@@ -27,7 +27,16 @@ function addTask(req,res){
         }
     })
 }
+//to display
+
 router.get('/list',(req,res)=>{
-    res.json("List Page")
+    task.find((err,docs) =>{
+        if(!err){
+            res.render('task/list',{
+            list:docs.map(docs => docs.toJSON())
+            }
+            )
+        }
+    })
 })
 module.exports = router;
