@@ -53,4 +53,36 @@ router.get('/delete/:id',(req,res)=>{
         }
     })
 })
+// Redirect to Edit Task Page
+router.get('/edit/:id', (req, res) => {
+    task.findById(req.params.id, (err, doc) => {
+        if (!err)
+            res.render('task/addEdit', {
+                viewTitle: 'Edit Task',
+                taskName: doc.taskName,
+                taskDesc: doc.taskDesc,
+                id: doc.id,
+                isUpdate: true,
+                btn: 'Update'
+            })
+        else
+            console.log("Error retriving data : ", err);
+
+    })
+})
+
+// Edit Task
+router.post('/edited/:id', (req, res) => {
+    task.findByIdAndUpdate(req.params.id, {
+        taskName: req.body.taskName,
+        taskDesc: req.body.taskDesc
+    }, (err, docs) => {
+        if (!err)
+            res.redirect('/task/list');
+        else
+            console.log('Error in Updating Task : ' + err);
+
+    })
+
+})
 module.exports = router;

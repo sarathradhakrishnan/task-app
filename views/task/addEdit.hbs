@@ -1,15 +1,48 @@
 <h2>{{viewTitle}}</h2>
+<br>
+<style>
+  input[type=text],
+  select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+</style>
+<div class="form-group">
+  {{#if isUpdate}}
+  <form action="/task/edited/{{id}}" method="POST" autocomplete="off">
+    {{else}}
+    <form action="/task" method="POST" autocomplete="off">
+      {{/if}}
 
-<form action="/task" autocomplete="off" method="POST">
-    <div class="form-group">
-        <label for="fname">Task name:</label><br>
-        <input required type="text" id="fname" name="taskName"><br>
-    </div>
-    <div class="form-group">
-        <label for="lname">Task Description:</label><br>
-        <input required type="text" id="lname" name="taskDesc">
-    </div>
-    <button type = "submit" class="btn">Submit</button>
-</form>
+      <label for="fname">Task</label>
+      <input type="text" id="fname" name="taskName" placeholder="Title of task..." value="{{taskName}}">
 
-<a href="/task/list"><button>View All</button></a>
+      <label for="lname">Task Description</label>
+      <input type="text" id="lname" name="taskDesc" placeholder="Describe your task..." value="{{taskDesc}}">
+
+      <input type="submit" value="{{btn}}">
+    </form>
+</div>
