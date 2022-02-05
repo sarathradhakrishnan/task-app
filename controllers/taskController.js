@@ -7,8 +7,10 @@ const task = mongoose.model('Task')
 
 router.get('/',(req,res)=>{
     res.render('task/addEdit',{
-        viewTitle : "Update your to-do list"
-    })
+        viewTitle : "Add Task",
+        btn: 'Submit',
+        isUpdate :false,
+    });
 })
 
 router.post('/',(req,res)=>{
