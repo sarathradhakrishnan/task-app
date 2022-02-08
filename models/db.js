@@ -1,6 +1,6 @@
 const  mongoose  = require("mongoose")
 
-mongoose.connect('mongodb://localhost:27017/taskDB',{useNewUrlParser : true}, (err) =>{
+mongoose.connect('mongodb+srv://user1:user1@cluster0.pirbs.mongodb.net/Cluster0?retryWrites=true&w=majority',{useNewUrlParser : true}, (err) =>{
     if(!err)
     {
         console.log('MongoDB succesfully connected')
@@ -8,5 +8,6 @@ mongoose.connect('mongodb://localhost:27017/taskDB',{useNewUrlParser : true}, (e
     else
         console.log('Error in mongoDB : '+err)
 })
+
 
 require('./task.model')
