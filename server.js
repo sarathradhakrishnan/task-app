@@ -17,8 +17,6 @@ app.get('/',(req,res) =>{
     res.send("Hi You are Welcome")
 })
 
-app.listen(5000,()=>{
-    console.log('Express Server Started')
-})
+app.listen(process.env.PORT || 5000)
 
 app.use('/task',taskController)
