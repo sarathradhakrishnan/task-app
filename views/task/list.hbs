@@ -1,13 +1,42 @@
-<h2>Todo List</h2>
-
-<br>
 <style>
     body{
         background-image: url('https://cdn.pixabay.com/photo/2020/09/15/15/56/background-5574027_1280.png');
         background-repeat: no-repeat;
         background-size: cover;
     }
+    .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 15px;
+        margin: 4px 2px;
+        padding: 14px 40px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    .button:hover {
+        color: white;
+        background-color: #41e046;
+
+
+    }
 </style>
+<div class="row">
+    <div class="col">
+        <h2>Todo List</h2>
+    </div>
+    <div class="col">
+        <a href="/task" style="float:right;" class="button">ADD</a>
+    </div>
+</div>
+
+<br>
+
 <table class="table  table-hover table-success">
     <thead class="thead-dark">
         <tr class="bg-success">
@@ -27,5 +56,4 @@
         </tr>
 {{/each}}
     </tbody>
-    <a href="/" style="float:right;" class="button">ADD</a>
 </table>
